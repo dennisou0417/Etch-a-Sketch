@@ -6,9 +6,13 @@
     border:1px solid black;
 }
 
-#grid-item{
+.grid-item{
     width: 32px;
     height: 32px;
     box-sizing: border-box;
     border:1px solid grey;
+}
+
+.pen{
+    background-color: black;
 }

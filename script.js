@@ -1,13 +1,17 @@
+document.body.addEventListener("mouseover", function(event){
+    if(event.target.matches(".grid-item")){
+        event.target.classList.add("pen");
+    }
+})
+
 const container = document.querySelector("#container");
 let row = 16;
 let col = 16;
 
-function makeGrid(row, col){
-    for(let i = 0; i < row * col; i++){   
-        const cell = document.createElement("div");   
-        cell.id = "grid-item";
-        container.appendChild(cell);
-    }
+for(let i = 0; i < row * col; i++){   
+    const cell = document.createElement("div");   
+    cell.className = "grid-item";
+    cell.id = `box-${i+1}`;
+    container.appendChild(cell);
 }
 
-makeGrid(row, col);
