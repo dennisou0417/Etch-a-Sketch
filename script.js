@@ -22,13 +22,14 @@ makeGrid(size);
 
 const newCanvasBtn = document.querySelector("#new-canvas");
 
+//Removes existing grid
 function removeGrid(){
     const cells = document.querySelectorAll(".grid-item");
     cells.forEach(cell => cell.remove());
 }
 
+//Creates New Canvas
 newCanvasBtn.addEventListener("click", () => {
-    //console.log(cells[41]);
     let newSize = parseInt(prompt("How many squares for per side for the grid? (max 100)"), 10);
     while(isNaN(newSize) || newSize <= 0 || newSize > 100){
         alert("Please enter an integer less than 100!");
