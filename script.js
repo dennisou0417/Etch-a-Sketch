@@ -2,8 +2,17 @@
 document.body.addEventListener("mouseover", function(event){
     if(event.target.matches(".grid-item")){
         event.target.classList.add("pen");
+        event.target.style.backgroundColor = randomizeColor();
     }
 })
+
+function randomizeColor(){
+    const r = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+
+    return `rgb(${r}, ${g}, ${b})`;
+}
 
 //Creating Grid
 const container = document.querySelector("#container");
