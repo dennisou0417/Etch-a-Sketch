@@ -1,15 +1,26 @@
 //Event Delegation on grid
 document.body.addEventListener("mouseover", function(event){
     if(event.target.matches(".grid-item")){
-        event.target.classList.add("pen");
-        event.target.style.backgroundColor = randomizeColor();
+        const cell = event.target;
+
+        if(!cell.style.backgroundColor){
+            cell.style.backgroundColor = randomizeColor();
+            cell.style.opacity = 0;
+        }
+
+        let currentOpacity = parseFloat(cell.style.opacity) || 0;
+
+        if(currentOpacity < 1){
+            currentOpacity = Math.min(1, currentOpacity + 0.1);
+            cell.style.opacity = currentOpacity.toFixed(2);
+        }
     }
 })
 
 function randomizeColor(){
     const r = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
 
     return `rgb(${r}, ${g}, ${b})`;
 }
